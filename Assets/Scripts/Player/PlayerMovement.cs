@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (movement == Vector3.zero)
             rb.velocity = Vector3.zero;
-        rb.velocity = movement * speed;
+        rb.velocity = movement * speed * Time.deltaTime;
     }
 
     void Turn()

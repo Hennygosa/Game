@@ -8,8 +8,8 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("Player").transform;
-        damage = GameObject.Find("Enemy").GetComponent<EnemyCombatRanged>().attackDamage;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        damage = GameObject.FindGameObjectWithTag("EnemyRanged").GetComponent<EnemyCombat>().attackDamage;
     }
 
     // Update is called once per frame
@@ -19,9 +19,8 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name == "Player")
+        if (collider.gameObject.tag == "Player")
         {
-            Debug.Log(damage);
             target.GetComponent<Player>().TakeDamage(damage);
             Destroy(gameObject);
         }

@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        healthbar = GameObject.Find("Main Camera").GetComponentInChildren<Healthbar>();
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
     }

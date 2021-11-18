@@ -11,6 +11,7 @@ public class Healthbar : MonoBehaviour
     Quaternion rotation;
     void Awake()
     {
+        slider = GetComponentInChildren<Slider>();
         rotation = transform.rotation;
     }
     void LateUpdate()

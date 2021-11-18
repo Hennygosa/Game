@@ -9,6 +9,7 @@ public class EnemyNavigation : MonoBehaviour
     public NavMeshAgent agent;
     Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
+    public string enemyType;
 
     //Patroling
     public Vector3 walkPoint;
@@ -26,7 +27,7 @@ public class EnemyNavigation : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        player = GameObject.Find("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -39,7 +40,7 @@ public class EnemyNavigation : MonoBehaviour
         //ChasePlayer();
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+        if (playerInSightRange && !playerInAttackRange || rb.GetComponent<Enemy>().currentHealth < rb.GetComponent<Enemy>().maxHealth) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
 
         if (rb.velocity == Vector3.zero)
@@ -79,14 +80,16 @@ public class EnemyNavigation : MonoBehaviour
     private void AttackPlayer()
     {
         //make sure enemy doesnt move
-        agent.SetDestination(transform.position);
+        //agent.SetDestination(transform.position);
 
         transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
-            //attack code
-            GetComponent<EnemyCombatRanged>().Shoot();
+            if (gameObject.tag == "EnemyRanged")
+                GetComponent<EnemyCombat>().Shoot();
+            if (gameObject.tag == "EnemyMelee")
+                GetComponent<EnemyCombat>().Hit();
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

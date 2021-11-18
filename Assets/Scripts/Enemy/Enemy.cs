@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public int maxHealth = 100;
-    int currentHealth;
+    public int currentHealth;
 
     public Healthbar healthbar;
 
