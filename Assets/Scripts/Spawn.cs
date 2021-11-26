@@ -9,10 +9,4 @@ public class Spawn : MonoBehaviour
     {
         Instantiate(obj, gameObject.transform);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
