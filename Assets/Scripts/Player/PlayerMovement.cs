@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Animator animator;
+
     Rigidbody rb;
 
     public float speed = 10f;
@@ -26,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
         if (movement == Vector3.zero)
             rb.velocity = Vector3.zero;
         rb.velocity = movement * speed * Time.deltaTime;
+        //animator variables
+        animator.SetFloat("Speed", rb.velocity.magnitude);
+        animator.SetFloat("AnimationSpeed", rb.velocity.magnitude * 0.1f);
     }
 
     void Turn()

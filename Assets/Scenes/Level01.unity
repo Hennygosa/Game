@@ -654,6 +654,31 @@ Rigidbody:
     type: 3}
   m_PrefabInstance: {fileID: 1012405374}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &235631478
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235631471}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 9ce6002518e821e43b4f97c76700fbac, type: 3}
+  m_Controller: {fileID: 9100000, guid: 88ff3ddaa54e9954f8e8734522a4ba22, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!4 &235631480 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5507318164032082035, guid: cf4d890a338cadd408f8bfff932fd846,
+    type: 3}
+  m_PrefabInstance: {fileID: 1012405374}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &235631481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,7 +694,7 @@ MonoBehaviour:
   rb: {fileID: 235631476}
   radialBar: {fileID: 1324990522}
   movementScript: {fileID: 235631471}
-  dashSpeed: 5000
+  dashSpeed: 20000
   dashCooldown: 2
   dashDuration: 0.25
 --- !u!1 &259767833
@@ -984,7 +1009,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432554582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 47.996002}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1156403289}
@@ -2524,11 +2549,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5507318162272535600, guid: cf4d890a338cadd408f8bfff932fd846,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507318162272535600, guid: cf4d890a338cadd408f8bfff932fd846,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.335
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507318162272535600, guid: cf4d890a338cadd408f8bfff932fd846,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.48
+      objectReference: {fileID: 0}
     - target: {fileID: 5507318164032081992, guid: cf4d890a338cadd408f8bfff932fd846,
         type: 3}
       propertyPath: speed
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 5507318164032081992, guid: cf4d890a338cadd408f8bfff932fd846,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 235631478}
     - target: {fileID: 5507318164032081992, guid: cf4d890a338cadd408f8bfff932fd846,
         type: 3}
       propertyPath: dashTime
@@ -2585,10 +2630,20 @@ PrefabInstance:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 1156403287}
+    - target: {fileID: 5507318164032082033, guid: cf4d890a338cadd408f8bfff932fd846,
+        type: 3}
+      propertyPath: maxHealth
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507318164032082034, guid: cf4d890a338cadd408f8bfff932fd846,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 235631478}
     - target: {fileID: 5507318164032082034, guid: cf4d890a338cadd408f8bfff932fd846,
         type: 3}
       propertyPath: attackRange
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5507318164032082034, guid: cf4d890a338cadd408f8bfff932fd846,
         type: 3}
@@ -2650,7 +2705,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6313459385366224156, guid: cf4d890a338cadd408f8bfff932fd846,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6313459385366224156, guid: cf4d890a338cadd408f8bfff932fd846,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 88ff3ddaa54e9954f8e8734522a4ba22, type: 2}
+    m_RemovedComponents:
+    - {fileID: 5507318164032081997, guid: cf4d890a338cadd408f8bfff932fd846, type: 3}
+    - {fileID: 5507318163028481086, guid: cf4d890a338cadd408f8bfff932fd846, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cf4d890a338cadd408f8bfff932fd846, type: 3}
 --- !u!1 &1043599958
 GameObject:
@@ -4137,10 +4204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6994ff58ddc558459558c826e550d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 235631480}
   smoothSpeed: 0.1
   offset: {x: 0, y: 100, z: 0}
-  canv: {fileID: 0}
+  canv: {fileID: 432554587}
 --- !u!81 &1633587147
 AudioListener:
   m_ObjectHideFlags: 0

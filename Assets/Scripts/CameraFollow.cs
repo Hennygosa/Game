@@ -15,7 +15,14 @@ public class CameraFollow : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         canv = gameObject.GetComponentInChildren<Canvas>();
+        canv.enabled = false;
         gameObject.transform.rotation = Quaternion.Euler(45, 0, 0);
+        //disable controls
+        target.GetComponentInParent<PlayerCombatMelee>().enabled = false;
+        target.GetComponentInParent<PlayerCombatRanged>().enabled = false;
+        target.GetComponentInParent<Player>().enabled = false;
+        target.GetComponentInParent<PlayerMovement>().enabled = false;
+        target.GetComponentInParent<PlayerDash>().enabled = false;
     }
 
     void FixedUpdate()
@@ -28,9 +35,16 @@ public class CameraFollow : MonoBehaviour
             canv.transform.rotation = gameObject.transform.rotation;
             offset = new Vector3(0, 100, 0);
         }
-        if (timeElapsed > cameraZoomInDelay + 2)
+        if (timeElapsed > cameraZoomInDelay + 1)
         {
             gameObject.GetComponent<Camera>().orthographic = true;
+            canv.enabled = true;
+            //enable controls
+            target.GetComponentInParent<PlayerCombatMelee>().enabled = true;
+            target.GetComponentInParent<PlayerCombatRanged>().enabled = true;
+            target.GetComponentInParent<Player>().enabled = true;
+            target.GetComponentInParent<PlayerMovement>().enabled = true;
+            target.GetComponentInParent<PlayerDash>().enabled = true;
         }
         if (target != null)
         {

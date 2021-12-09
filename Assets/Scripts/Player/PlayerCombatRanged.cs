@@ -9,6 +9,7 @@ public class PlayerCombatRanged : MonoBehaviour
     public GameObject projectile;
     public RadialBar radialBar;
 
+    public float attackCooldown = .5f;
     public float attackRange = 15f;
     public int attackDamage = 40;
     public float bulletSpeed = 30f;
@@ -17,11 +18,13 @@ public class PlayerCombatRanged : MonoBehaviour
     public float reloadTime = 1f;
 
     private bool isReloading = false;
-    private float timer;
-    
+    private float reloadTimer;
+    private float attackTimer;
+
     void Start()
     {
-        timer = reloadTime;
+        attackTimer = attackCooldown;
+        reloadTimer = reloadTime;
         radialBar.maxValue = maxAmmo;
         radialBar.amount.text = $"{maxAmmo}";
         currentAmmo = maxAmmo;
@@ -34,8 +37,8 @@ public class PlayerCombatRanged : MonoBehaviour
         if (isReloading)
         {
             radialBar.maxValue = reloadTime;
-            timer -= Time.deltaTime;
-            radialBar.Modify(timer);
+            reloadTimer -= Time.deltaTime;
+            radialBar.Modify(reloadTimer);
             radialBar.amount.text = "";
             return;
         }
@@ -43,11 +46,17 @@ public class PlayerCombatRanged : MonoBehaviour
         if (currentAmmo <= 0f || Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(Reload());
+            attackTimer = 0;
             return;
         }
+        if (attackTimer > 0)
+            attackTimer -= Time.deltaTime;
         //גûסענוכ ןמ ÏÊÌ
-        if(Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && attackTimer <= 0)
+        {
             Shoot();
+            attackTimer = attackCooldown;
+        }
     }
 
     public void Shoot()
@@ -68,7 +77,7 @@ public class PlayerCombatRanged : MonoBehaviour
         radialBar.maxValue = maxAmmo;
         currentAmmo = maxAmmo;
         radialBar.Modify(currentAmmo);
-        timer = reloadTime;
+        reloadTimer = reloadTime;
         isReloading = false;
     }
 }
