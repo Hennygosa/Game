@@ -4,29 +4,44 @@ using UnityEngine;
 
 public class PlayerCombatMelee : MonoBehaviour
 {
+    public Animator animator;
+
     public Transform attackPoint;
+    //слой для регистрации попаданий по врагам
     public LayerMask enemyLayers;
 
+    public float attackCooldown = 1f;
     public float attackRange = 0.5f;
     public int attackDamage = 40;
 
-    // Update is called once per frame
+    private float attackTimer;
+
+    public void Start()
+    {
+        attackTimer = attackCooldown;
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (attackTimer > 0)
+            attackTimer -= Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Mouse0) && attackTimer <= 0)
         {
-            Attack();
+            StartCoroutine(Attack());
+            attackTimer = attackCooldown;
         }
     }
 
-    void Attack()
+    IEnumerator Attack()
     {
-        //play an attack animation
+        //анимация удара
+        animator.Play("NormalAttack01_SwordShield");
 
-        //detect enemies in range of attack
+        //определяем попадания по объектам из слоя
         Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
 
-        //damage them
+        //нанести урон
+        yield return new WaitForSeconds(.4f);
         foreach (Collider enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
