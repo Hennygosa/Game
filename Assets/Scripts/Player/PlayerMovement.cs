@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Animator animator;
-
+    [SerializeField] float speed = 10f;
     Rigidbody rb;
-
-    public float speed = 10f;
+    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
+    // Update is called once per frame
     void FixedUpdate()
     {
         Move();
@@ -28,9 +27,6 @@ public class PlayerMovement : MonoBehaviour
         if (movement == Vector3.zero)
             rb.velocity = Vector3.zero;
         rb.velocity = movement * speed * Time.deltaTime;
-        //animator variables
-        animator.SetFloat("Speed", rb.velocity.magnitude);
-        animator.SetFloat("AnimationSpeed", rb.velocity.magnitude * 0.1f);
     }
 
     void Turn()

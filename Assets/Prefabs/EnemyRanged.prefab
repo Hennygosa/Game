@@ -1,5 +1,7 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
+=======
 --- !u!1 &980572612089638600
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +136,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+>>>>>>> dev
 --- !u!1 &5088548444128388249
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +274,10 @@ RectTransform:
   - {fileID: 5680045729488170482}
   - {fileID: 5680045730134288417}
   - {fileID: 5680045729273875336}
+<<<<<<< HEAD
+=======
   - {fileID: 8255238358309462432}
+>>>>>>> dev
   m_Father: {fileID: 5680045730332800917}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -344,7 +350,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 5680045729287393464}
+<<<<<<< HEAD
+=======
   amount: {fileID: 1567726213440890454}
+>>>>>>> dev
 --- !u!1 &5680045729488170481
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +583,10 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
+<<<<<<< HEAD
+=======
   enemyType: 
+>>>>>>> dev
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   timeBetweenAttacks: 1
@@ -835,7 +847,11 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+<<<<<<< HEAD
+  m_AdditionalShaderChannelsFlag: 0
+=======
   m_AdditionalShaderChannelsFlag: 25
+>>>>>>> dev
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -892,4 +908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
+<<<<<<< HEAD
+=======
   amount: {fileID: 0}
+>>>>>>> dev
