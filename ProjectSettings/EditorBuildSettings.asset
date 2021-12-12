@@ -10,12 +10,9 @@ EditorBuildSettings:
     guid: cb0ee5ffffc94c449b259fcdeeea365e
   - enabled: 1
 <<<<<<< HEAD
-<<<<<<< HEAD
     path: Assets/Scenes/Game.unity
     guid: f707d7d958b914f459010abe84645194
 =======
-=======
->>>>>>> temp
     path: Assets/Scenes/Level01.unity
     guid: f707d7d958b914f459010abe84645194
   - enabled: 1
@@ -27,8 +24,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level04.unity
     guid: c12673b8cc897394bbca7cd48360c33c
-<<<<<<< HEAD
 >>>>>>> dev
-=======
->>>>>>> temp
   m_configObjects: {}

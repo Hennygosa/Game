@@ -25,6 +25,11 @@ public class CameraFollow : MonoBehaviour
         target.GetComponentInParent<PlayerDash>().enabled = false;
     }
 
+    private void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+
     void FixedUpdate()
     {
         timeElapsed += Time.deltaTime;
