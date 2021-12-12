@@ -4,33 +4,11 @@ using UnityEngine;
 
 public class PlayerCombatRanged : MonoBehaviour
 {
-<<<<<<< HEAD
-    Rigidbody rb;
-    public Transform attackPoint;
-    public GameObject target;
-    public GameObject projectile;
-
-    public float attackRange = 15f;
-    public int attackDamage = 40;
-    public float bulletSpeed = 30f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            Shoot();
-=======
     public Transform attackPoint;
     public GameObject target;
     public GameObject projectile;
     public RadialBar radialBar;
+    public AudioClip shootSound;
 
     public float attackCooldown = .5f;
     public float attackRange = 15f;
@@ -40,12 +18,14 @@ public class PlayerCombatRanged : MonoBehaviour
     public int currentAmmo;
     public float reloadTime = 1f;
 
+    private AudioSource audioSource;
     private bool isReloading = false;
     private float reloadTimer;
     private float attackTimer;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         attackTimer = attackCooldown;
         reloadTimer = reloadTime;
         radialBar.maxValue = maxAmmo;
@@ -56,7 +36,7 @@ public class PlayerCombatRanged : MonoBehaviour
 
     void Update()
     {
-        //индикатор времени перезарядки
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         if (isReloading)
         {
             radialBar.maxValue = reloadTime;
@@ -65,7 +45,7 @@ public class PlayerCombatRanged : MonoBehaviour
             radialBar.amount.text = "";
             return;
         }
-        //перезарядка при 0 патронов или на R
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ 0 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ R
         if (currentAmmo <= 0f || Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(Reload());
@@ -74,29 +54,19 @@ public class PlayerCombatRanged : MonoBehaviour
         }
         if (attackTimer > 0)
             attackTimer -= Time.deltaTime;
-        //выстрел по ПКМ
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ
         if (Input.GetKeyDown(KeyCode.Mouse1) && attackTimer <= 0)
         {
             Shoot();
             attackTimer = attackCooldown;
->>>>>>> dev
         }
     }
 
     public void Shoot()
     {
-<<<<<<< HEAD
-        //play an attack animation
-
-        //spawn the projectile
-        Rigidbody bullet = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        bullet.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
-    }
-
-=======
-        //анимация выстрела
-
-        //создать пулю и пересчитать патроны
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        audioSource.PlayOneShot(shootSound, 0.4f);
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         Rigidbody bullet = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
         bullet.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
         currentAmmo--;
@@ -113,5 +83,4 @@ public class PlayerCombatRanged : MonoBehaviour
         reloadTimer = reloadTime;
         isReloading = false;
     }
->>>>>>> dev
 }

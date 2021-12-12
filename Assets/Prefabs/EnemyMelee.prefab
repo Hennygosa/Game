@@ -30,8 +30,6 @@ Transform:
   m_Father: {fileID: 5680045730103657006}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &5546611249451819896
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +164,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
->>>>>>> dev
 --- !u!1 &5680045729273875335
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,10 +271,7 @@ RectTransform:
   - {fileID: 5680045729488170482}
   - {fileID: 5680045730134288417}
   - {fileID: 5680045729273875336}
-<<<<<<< HEAD
-=======
   - {fileID: 2709263331069223436}
->>>>>>> dev
   m_Father: {fileID: 5680045730332800917}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -350,10 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 5680045729287393464}
-<<<<<<< HEAD
-=======
   amount: {fileID: 439934306754607142}
->>>>>>> dev
 --- !u!1 &5680045729488170481
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,11 +835,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-<<<<<<< HEAD
-  m_AdditionalShaderChannelsFlag: 0
-=======
   m_AdditionalShaderChannelsFlag: 25
->>>>>>> dev
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -905,7 +892,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
-<<<<<<< HEAD
-=======
   amount: {fileID: 0}
->>>>>>> dev

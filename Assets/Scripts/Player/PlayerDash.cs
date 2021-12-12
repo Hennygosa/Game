@@ -22,10 +22,12 @@ public class PlayerDash : MonoBehaviour
     }
     private void Update()
     {
-        //выкл скрипт на движение во время рывка
-        if (!isDashing)
+        //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+        if (isDashing)
+            movementScript.GetComponent<PlayerMovement>().enabled = false;
+        else
             movementScript.GetComponent<PlayerMovement>().enabled = true;
-        //обновляем индикатор кд
+        //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ
         if (timer > 0)
         {
             radialBar.amount.enabled = true;
@@ -34,14 +36,15 @@ public class PlayerDash : MonoBehaviour
             radialBar.amount.text = $"{Mathf.CeilToInt(timer)}";
             return;
         }
-        //если нет кд - рывок
+        //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ - пїЅпїЅпїЅпїЅпїЅ
         if (timer <= 0)
         {
             radialBar.Modify(dashCooldown);
             radialBar.amount.enabled = false;
             StartCoroutine(Dash());
+
         }
-        
+
     }
 
     IEnumerator Dash()
@@ -50,14 +53,12 @@ public class PlayerDash : MonoBehaviour
         {
             timer = 2f;
             isDashing = true;
-            movementScript.GetComponent<PlayerMovement>().enabled = false;
             Vector3 direction = Vector3.zero;
             direction.x = Input.GetAxisRaw("Horizontal");
             direction.z = Input.GetAxisRaw("Vertical");
             rb.AddForce(direction.normalized * dashSpeed * Time.deltaTime, ForceMode.VelocityChange);
             yield return new WaitForSeconds(dashDuration);
             isDashing = false;
-
         }
     }
 }

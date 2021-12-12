@@ -18,7 +18,7 @@ public class ChangeLevel : MonoBehaviour
     }
     public void ShowExit()
     {
-        transform.position = new Vector3(0, 3, 195);
+        transform.position = new Vector3(-186f, 2f, -90f);
     }
 
 
