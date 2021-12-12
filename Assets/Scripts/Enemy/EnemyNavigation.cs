@@ -6,21 +6,21 @@ using UnityEngine.AI;
 public class EnemyNavigation : MonoBehaviour
 {
     Rigidbody rb;
-    Transform player;
     public NavMeshAgent agent;
+    Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
     public string enemyType;
 
-    //патруль
+    //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
 
-    //атака
+    //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
 
-    //состояния
+    //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
@@ -33,44 +33,42 @@ public class EnemyNavigation : MonoBehaviour
 
     private void Update()
     {
-        //проверяем если в радиусе видимости и атаки
+        //check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-        //если не в радиусе видимости и не в радиусе атаки - патрулируем
+
+        //ChasePlayer();
+
         if (!playerInSightRange && !playerInAttackRange) Patroling();
-        //если в радиусе видимости и не в радиусе атаки или враг в бою - преследуем
-        if (playerInSightRange && !playerInAttackRange || rb.GetComponent<Enemy>().inCombat)
-        {
-            rb.GetComponent<Enemy>().inCombat = true;
-            ChasePlayer();
-        }
-        //если в радиусе видимости и атаки - атакуем
+        if (playerInSightRange && !playerInAttackRange || rb.GetComponent<Enemy>().currentHealth < rb.GetComponent<Enemy>().maxHealth) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
-        //если стоим - стоим =)
+
         if (rb.velocity == Vector3.zero)
             rb.constraints = RigidbodyConstraints.FreezePosition;
     }
 
     private void Patroling()
     {
-        //если нет точек - генерируем
         if (!walkPointSet) SearchWalkPoint();
-        //если есть точка - идём к ней
+
         if (walkPointSet)
             agent.SetDestination(walkPoint);
-        //если достигли точки - точек нет
+
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+        //walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
 
     private void SearchWalkPoint()
     {
-        //сгенерировать точку
+        //calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
+
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-        //если на земле то ок
+
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
     }
@@ -81,17 +79,18 @@ public class EnemyNavigation : MonoBehaviour
     }
     private void AttackPlayer()
     {
+        //make sure enemy doesnt move
+        //agent.SetDestination(transform.position);
+
         transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
-            //если враг дальнего боя - стреляем
             if (gameObject.tag == "EnemyRanged")
                 GetComponent<EnemyCombat>().Shoot();
-            //если ближнего - бьем
             if (gameObject.tag == "EnemyMelee")
-                GetComponent<EnemyCombat>().MeleeHit();
-            //атаковали - ждём кд
+                GetComponent<EnemyCombat>().Hit();
+
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }

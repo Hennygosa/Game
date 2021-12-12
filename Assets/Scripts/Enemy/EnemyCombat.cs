@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
+    Rigidbody rb;
     public Transform attackPoint;
     public GameObject player;
     public GameObject projectile;
@@ -11,11 +12,15 @@ public class EnemyCombat : MonoBehaviour
     public int attackDamage = 40;
     public float bulletSpeed = 30f;
 
+    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
+    
+
+    // Update is called once per frame
     void Update()
     {
         if (player == null)
@@ -26,19 +31,15 @@ public class EnemyCombat : MonoBehaviour
 
     public void Shoot()
     {
-        //анимация стрельбы
+        //play an attack animation
 
-        //создать снаряд
+        //spawn the projectile
         Rigidbody bullet = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
         bullet.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
     }
 
-    //ближний удар
-    public void MeleeHit()
+    public void Hit()
     {
-        //анимация удара
-
-        //нанесение урона игроку
         player.GetComponent<Player>().TakeDamage(attackDamage);
     }
 

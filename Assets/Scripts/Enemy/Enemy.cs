@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public Healthbar healthbar;
-    public bool inCombat = false;
     public int maxHealth = 100;
     public int currentHealth;
 
+    public Healthbar healthbar;
 
     void Start()
     {
@@ -19,15 +18,13 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        //если хп меньше 100% - в бою
-        if (currentHealth < maxHealth)
-            inCombat = true;
+        
     }
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
-        //анимация получения урона
+        //play hurt animation
 
         if (currentHealth <= 0)
         {
@@ -37,7 +34,11 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        //анимация смерти
         Destroy(gameObject);
+        Debug.Log("Enemy died!");
+
+        //die animation
+
+        //disable the enemy
     }
 }

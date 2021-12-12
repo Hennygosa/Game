@@ -6,15 +6,14 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public Transform player;
-    public NavMeshAgent agent;
-
-    public float speed = 5f;
-
     private Rigidbody rb;
+    public NavMeshAgent agent;
+    public float speed = 5f;
+    private bool inCombat = false;
+
     private Vector3 direction;
     private float distance;
-    private bool inCombat = false;
-    
+    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -22,23 +21,20 @@ public class EnemyMovement : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
+    // Update is called once per frame
     void FixedUpdate()
     {
-        //считаем расстояние и направление   
+        
         distance = Vector3.Distance(player.position, transform.position);
         direction = (player.position - transform.position).normalized;
-        //если расстояние < 30 - в бою
         if (distance < 30f)
             inCombat = true;
-        //если не в бою - стоять
         if (!inCombat)
             Stop();
-        //иначе - смотреть на игрока, двигаться
         else
         {
             LookAt();
             Move();
-            //если расстояние <=5 - стоять
             if(distance <= 5f)
             rb.velocity = Vector3.zero;
         }
@@ -46,6 +42,7 @@ public class EnemyMovement : MonoBehaviour
     private void Move()
     {
         agent.SetDestination(player.position);
+        //rb.velocity = direction * speed;
     }
 
     private void Stop()
