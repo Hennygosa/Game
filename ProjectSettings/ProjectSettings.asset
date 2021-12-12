@@ -7,7 +7,10 @@ PlayerSettings:
   serializedVersion: 15
 =======
   serializedVersion: 22
+<<<<<<< HEAD
 >>>>>>> dev
+=======
+>>>>>>> temp
   productGUID: 780c11d9110d54b00bd156eda70c71b3
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
@@ -72,7 +75,10 @@ PlayerSettings:
 =======
   androidRenderOutsideSafeArea: 1
   androidUseSwappy: 0
+<<<<<<< HEAD
 >>>>>>> dev
+=======
+>>>>>>> temp
   androidBlitType: 0
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
@@ -115,7 +121,10 @@ PlayerSettings:
   xboxOnePresentImmediateThreshold: 0
   switchQueueCommandMemory: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> temp
   switchQueueControlMemory: 16384
   switchQueueComputeMemory: 262144
   switchNVNShaderPoolsGranularity: 33554432
@@ -172,10 +181,14 @@ PlayerSettings:
     Standalone: unity.DefaultCompany.NavMeshComponents
     Tizen: com.Company.ProductName
 <<<<<<< HEAD
+<<<<<<< HEAD
     iOS: com.Company.ProductName
 =======
     iPhone: com.Company.ProductName
 >>>>>>> dev
+=======
+    iPhone: com.Company.ProductName
+>>>>>>> temp
     tvOS: com.Company.ProductName
   buildNumber:
     iOS: 0
@@ -254,7 +267,10 @@ PlayerSettings:
   metalAPIValidation: 1
   iOSRenderExtraFrameOnPause: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> temp
   iosCopyPluginsCodeInsteadOfSymlink: 0
 >>>>>>> dev
   appleDeveloperTeamID: 
@@ -281,7 +297,10 @@ PlayerSettings:
   useCustomBaseGradleTemplate: 0
   useCustomGradlePropertiesTemplate: 0
   useCustomProguardFile: 0
+<<<<<<< HEAD
 >>>>>>> dev
+=======
+>>>>>>> temp
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
@@ -492,7 +511,10 @@ PlayerSettings:
 =======
   switchUserAccountLockEnabled: 0
   switchSystemResourceMemory: 16777216
+<<<<<<< HEAD
 >>>>>>> dev
+=======
+>>>>>>> temp
   switchSupportedNpadStyles: 3
   switchNativeFsCacheSize: 32
   switchIsHoldTypeHorizontal: 0
@@ -549,7 +571,10 @@ PlayerSettings:
 <<<<<<< HEAD
 =======
   playerPrefsMaxSize: 32768
+<<<<<<< HEAD
 >>>>>>> dev
+=======
+>>>>>>> temp
   ps4Passcode: 5PN2qmWqBlQ9wQj99nsQzldVI5ZuGXbE
   ps4pnSessions: 1
   ps4pnPresence: 1
@@ -596,9 +621,13 @@ PlayerSettings:
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   webGLWasmArithmeticExceptions: 0
 >>>>>>> dev
+=======
+  webGLWasmArithmeticExceptions: 0
+>>>>>>> temp
   webGLLinkerTarget: 0
   webGLThreadsSupport: 0
   scriptingDefineSymbols: {}
@@ -662,7 +691,10 @@ PlayerSettings:
 <<<<<<< HEAD
 =======
   XboxOneEnhancedXboxCompatibilityMode: 0
+<<<<<<< HEAD
 >>>>>>> dev
+=======
+>>>>>>> temp
   XboxOneEnableGPUVariability: 0
   XboxOneSockets: {}
   XboxOneSplashScreen: {fileID: 0}
@@ -701,10 +733,13 @@ PlayerSettings:
   organizationId: 
   cloudEnabled: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
   legacyClampBlendShapeWeights: 1
 =======
+=======
+>>>>>>> temp
   legacyClampBlendShapeWeights: 1
   virtualTexturingSupportEnabled: 0
 >>>>>>> dev

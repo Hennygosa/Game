@@ -1,9 +1,13 @@
 sceneSetups:
 <<<<<<< HEAD
+<<<<<<< HEAD
 - path: Assets/Game.unity
 =======
 - path: Assets/Scenes/Level01.unity
 >>>>>>> dev
+=======
+- path: Assets/Scenes/Level01.unity
+>>>>>>> temp
   isLoaded: 1
   isActive: 1
   isSubScene: 0
