@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637749098900082942
-    m_Hash: 2996474527
+      ticks: 637757046077041786
+    m_Hash: 3258292015
   m_LockFileStatus:
     m_FilePath: "C:/Users/\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C/Documents/GitHub/Game/Packages/packages-lock.json"
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637749099012147759
-    m_Hash: 2043179509
+      ticks: 637757046077051440
+    m_Hash: 108727831
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
