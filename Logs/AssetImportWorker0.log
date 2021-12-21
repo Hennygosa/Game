@@ -3629,3 +3629,4 @@ Received Import Request.
 Start importing Assets/Prefabs/EnemyMelee.prefab using Guid(956e07f11a9d161498face3eacbf7dba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '998bbd8b09ae9a10d32e08b0940f4417') in 0.095354 seconds
   Import took 0.098732 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
