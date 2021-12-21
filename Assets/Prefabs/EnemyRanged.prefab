@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100/100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -434,6 +434,7 @@ GameObject:
   - component: {fileID: 5680045730103657003}
   - component: {fileID: 5680045730103657002}
   - component: {fileID: 5680045730103657001}
+  - component: {fileID: 5894768593222612343}
   - component: {fileID: 3316415345078477555}
   - component: {fileID: 3489055738685444993}
   - component: {fileID: 8177993607860058387}
@@ -553,10 +554,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a555c106b459b740b70fef62c876bb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heal: {fileID: 5894768593222612343}
   healthbar: {fileID: 5680045729287393465}
   inCombat: 0
   maxHealth: 100
   currentHealth: 0
+--- !u!114 &5894768593222612343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680045730103656999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb0531401ac07e43b83449ad7e0f8a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 7613237974101160703, guid: 05d37e92cf1e9f040a0a55e5776aff50, type: 3}
+  chance: 30
 --- !u!114 &3316415345078477555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -598,7 +614,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 4480707149608709151}
   player: {fileID: 0}
-  projectile: {fileID: 5927164970044821353, guid: 22c205186eedc5e44b520af3c0e34c65, type: 3}
+  projectile: {fileID: 5927164970044821353, guid: 22c205186eedc5e44b520af3c0e34c65,
+    type: 3}
   attackDamage: 40
   bulletSpeed: 30
 --- !u!195 &8177993607860058387

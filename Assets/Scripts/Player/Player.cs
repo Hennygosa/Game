@@ -34,4 +34,15 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene(0);
         //анимация смерти
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //heal on healing pick-up
+        if (other.gameObject.CompareTag("Heal") && currentHealth < maxHealth)
+        {
+            currentHealth += other.gameObject.GetComponent<Heal>().healingAmount;
+            healthbar.SetHealth(currentHealth);
+            Destroy(other.gameObject);
+        }
+    }
 }

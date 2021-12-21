@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    public DropItem heal;
     public Healthbar healthbar;
     public bool inCombat = false;
     public int maxHealth = 100;
@@ -39,5 +40,17 @@ public class Enemy : MonoBehaviour
     {
         //�������� ������
         Destroy(gameObject);
+        CheckDrop();
+    }
+
+    public void CheckDrop()
+    {
+        int rnd = (int)Random.Range(0, 100);
+
+        if (heal.chance < rnd)
+        {
+            heal.CreateDropItem(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z));
+            return;
+        }
     }
 }

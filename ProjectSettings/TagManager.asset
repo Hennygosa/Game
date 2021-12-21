@@ -8,6 +8,9 @@ TagManager:
   - Projectile
   - EnemyRanged
   - EnemyMelee
+  - Heal
+  - Wall
+  - Boundaries
   layers:
   - Default
   - TransparentFX
