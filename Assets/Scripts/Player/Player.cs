@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public int maxHealth = 100;
-    int currentHealth;
-
+    public AudioClip getHitSound;
     public Healthbar healthbar;
+
+    private int currentHealth;
+    private AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
     }
@@ -20,6 +23,7 @@ public class Player : MonoBehaviour
     {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
+        //audioSource.PlayOneShot(getHitSound, 0.2f);
         //анимация получения урона
 
         if (currentHealth <= 0)

@@ -11,10 +11,8 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset;
     public Canvas canv;
 
-    Vector3 camPos;
     private float cameraZoomInDelay = 2f;
     private float timeElapsed;
-    private bool InBounds = true;
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -27,7 +25,6 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        camPos = transform.position;
         timeElapsed += Time.deltaTime;
 
         if (timeElapsed > cameraZoomInDelay)

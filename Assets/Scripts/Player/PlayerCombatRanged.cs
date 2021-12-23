@@ -65,9 +65,9 @@ public class PlayerCombatRanged : MonoBehaviour
     public void Shoot()
     {
         //�������� ��������
-        audioSource.PlayOneShot(shootSound, 0.4f);
+        audioSource.PlayOneShot(shootSound, 0.5f);
         //������� ���� � ����������� �������
-        Rigidbody bullet = Instantiate(projectile, attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+        Rigidbody bullet = Instantiate(projectile, attackPoint.position, transform.localRotation).GetComponent<Rigidbody>();
         bullet.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
         currentAmmo--;
         radialBar.Modify(currentAmmo);

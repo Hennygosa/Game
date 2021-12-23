@@ -36,7 +36,7 @@ public class PlayerCombatMelee : MonoBehaviour
 
     IEnumerator Attack()
     {
-        audioSource.PlayOneShot(meleeSound, 0.4f);
+        audioSource.PlayOneShot(meleeSound, 0.5f);
         //�������� �����
         animator.Play("NormalAttack01_SwordShield");
 
