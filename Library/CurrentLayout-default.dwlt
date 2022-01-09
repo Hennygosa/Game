@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,10 +119,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 781, y: 492}
+  m_MinSize: {x: 881, y: 492}
   m_MaxSize: {x: 16006, y: 14042}
   vertical: 0
-  controlID: 71
+  controlID: 4735
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,10 +144,10 @@ MonoBehaviour:
     y: 0
     width: 1501
     height: 947
-  m_MinSize: {x: 505, y: 492}
+  m_MinSize: {x: 605, y: 492}
   m_MaxSize: {x: 12005, y: 14042}
   vertical: 1
-  controlID: 72
+  controlID: 4631
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,10 +170,10 @@ MonoBehaviour:
     y: 0
     width: 1501
     height: 676
-  m_MinSize: {x: 505, y: 221}
+  m_MinSize: {x: 605, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 73
+  controlID: 4632
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: AnimatorControllerTool
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -219,15 +219,15 @@ MonoBehaviour:
     y: 0
     width: 584
     height: 676
-  m_MinSize: {x: 102, y: 121}
+  m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
   - {fileID: 16}
   - {fileID: 17}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
-  m_MaximizeOnPlay: 0
+  m_MaximizeOnPlay: 1
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 5adcffff
+      m_ExpandedIDs: 7c3fffff8a89ffff628bffffcc95ffff5298ffff5498ffff58a4ffff52fbffff2a3900008a3b0000083d0000ce720000527e0000b2800000568e0000e68e00005cbf00006abf0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -489,9 +489,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.49212217, y: -13.945953, z: -160.4157}
+    m_Target: {x: 650.48895, y: 319.49356, z: 3.193512}
     speed: 2
-    m_Value: {x: 0.49212217, y: -13.945953, z: -160.4157}
+    m_Value: {x: 650.48895, y: 319.49356, z: 3.193512}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -538,13 +538,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.5585776, y: -0.057874165, z: 0.03909974, w: -0.82652354}
+    m_Target: {x: -0.10958908, y: -0.005368505, z: 0.00058422476, w: -0.99398375}
     speed: 2
-    m_Value: {x: -0.55856967, y: -0.057873346, z: 0.039099187, w: -0.8265118}
+    m_Value: {x: -0.10958908, y: -0.005368505, z: 0.00058422476, w: -0.9939837}
   m_Size:
-    m_Target: 39.33402
+    m_Target: 432.87698
     speed: 2
-    m_Value: 39.33402
+    m_Value: 432.87698
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -731,22 +731,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/RPGStarterStylizedWeaponPack/RPGStarteWeaponPack/Bow
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/RPGStarterStylizedWeaponPack/RPGStarteWeaponPack/Bow
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Henny\Documents\GitHub\Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 48470000
-    m_LastClickedID: 18248
-    m_ExpandedIDs: 00000000046b0000666b000000ca9a3b
+    scrollPos: {x: 0, y: 142}
+    m_SelectedIDs: 06450000
+    m_LastClickedID: 17670
+    m_ExpandedIDs: 00000000e2440000e444000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -774,7 +774,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000046b0000
+    m_ExpandedIDs: 00000000e2440000e444000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -799,8 +799,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 9abe0000
+    m_LastClickedInstanceID: 48794
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c62300001446000036550000a04500001a550000d6d6010000000000944400002a580000
     m_RenameOverlay:

@@ -32,23 +32,29 @@ public class EnemyNavigation : MonoBehaviour
 
     private void Update()
     {
-        //проверяем если в радиусе видимости и атаки
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-        //если не в радиусе видимости и не в радиусе атаки - патрулируем
-        //if (!playerInSightRange && !playerInAttackRange) Patroling();
-        //если в радиусе видимости и не в радиусе атаки или враг в бою - преследуем
-        if (playerInSightRange && !playerInAttackRange || rb.GetComponent<Enemy>().inCombat)
+        if (player != null)
         {
-            rb.GetComponent<Enemy>().inCombat = true;
-            ChasePlayer();
+            //проверяем если в радиусе видимости и атаки
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+            //если не в радиусе видимости и не в радиусе атаки - патрулируем
+            //if (!playerInSightRange && !playerInAttackRange) Patroling();
+            //если в радиусе видимости и не в радиусе атаки или враг в бою - преследуем
+            if (playerInSightRange && !playerInAttackRange || rb.GetComponent<Enemy>().inCombat)
+            {
+                rb.GetComponent<Enemy>().inCombat = true;
+                ChasePlayer();
+            }
+            //если в радиусе атаки - атакуем
+            if (playerInAttackRange)
+            {
+
+                transform.LookAt(player);
+                GetComponent<EnemyCombat>().AttackPlayer();
+            }
         }
-        //если в радиусе атаки - атакуем
-        if (playerInAttackRange)
-        {
-            transform.LookAt(player);
-            GetComponent<EnemyCombat>().AttackPlayer();
-        }
+        else
+            return;
     }
 
     //private void Patroling()
@@ -79,6 +85,7 @@ public class EnemyNavigation : MonoBehaviour
     {
         animator.SetBool("Chasing", true);
         agent.SetDestination(player.position);
+        agent.stoppingDistance = attackRange;
     }
 
     private void OnDrawGizmosSelected()

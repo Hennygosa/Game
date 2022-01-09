@@ -44,7 +44,7 @@ public class PlayerCombatMelee : MonoBehaviour
         Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
 
         //������� ����
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(.2f);
         foreach (Collider enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
