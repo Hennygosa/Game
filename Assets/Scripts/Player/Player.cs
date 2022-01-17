@@ -7,13 +7,14 @@ public class Player : MonoBehaviour
 {
     public int maxHealth = 100;
     public AudioClip getHitSound;
-    public Healthbar healthbar;
-
+    
+    private Healthbar healthbar;
     private int currentHealth;
     private AudioSource audioSource;
 
     void Start()
     {
+        healthbar = GameObject.Find("PlayerHealthBar").GetComponent<Healthbar>();
         audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
@@ -35,7 +36,6 @@ public class Player : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        SceneManager.LoadScene(0);
         //анимация смерти
     }
 

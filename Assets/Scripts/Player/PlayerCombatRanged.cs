@@ -7,7 +7,6 @@ public class PlayerCombatRanged : MonoBehaviour
     public Transform attackPoint;
     public GameObject target;
     public GameObject projectile;
-    public RadialBar radialBar;
     public AudioClip shootSound;
 
     public float attackCooldown = .5f;
@@ -18,6 +17,7 @@ public class PlayerCombatRanged : MonoBehaviour
     public int currentAmmo;
     public float reloadTime = 1f;
 
+    private RadialBar radialBar;
     private AudioSource audioSource;
     private bool isReloading = false;
     private float reloadTimer;
@@ -25,6 +25,7 @@ public class PlayerCombatRanged : MonoBehaviour
 
     void Start()
     {
+        radialBar = GameObject.Find("Ammo").GetComponent<RadialBar>();
         audioSource = GetComponent<AudioSource>();
         attackTimer = attackCooldown;
         reloadTimer = reloadTime;

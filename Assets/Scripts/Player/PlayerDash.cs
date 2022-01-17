@@ -5,17 +5,18 @@ using UnityEngine;
 public class PlayerDash : MonoBehaviour
 {
     public Rigidbody rb;
-    public RadialBar radialBar;
     public GameObject movementScript;
 
     public int dashSpeed = 100;
     public float dashCooldown = 2f;
     public float dashDuration = 0.5f;
 
+    private RadialBar radialBar;
     private bool isDashing = false;
     private float timer;
     private void Start()
     {
+        radialBar = GameObject.Find("Dash").GetComponent<RadialBar>();
         timer = 0;
         radialBar.maxValue = dashCooldown;
         radialBar.amount.text = $"{dashCooldown}";

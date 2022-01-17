@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;
+    public Transform player;
     public float maxX;
     public float maxZ;
     public float minX;
@@ -11,11 +11,12 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset;
     public Canvas canv;
 
+    private bool isCountingTime = true;
     private float cameraZoomInDelay = 2f;
     private float timeElapsed;
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         canv = gameObject.GetComponentInChildren<Canvas>();
         canv.enabled = false;
         gameObject.transform.rotation = Quaternion.Euler(45, 0, 0);
@@ -25,23 +26,26 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        timeElapsed += Time.deltaTime;
+        if (isCountingTime)
+            timeElapsed += Time.deltaTime;
 
-        if (timeElapsed > cameraZoomInDelay)
+        
+        if (timeElapsed > cameraZoomInDelay && isCountingTime)
         {
             gameObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(90, 0, 0), 100 * Time.deltaTime);
             canv.transform.rotation = gameObject.transform.rotation;
             offset = new Vector3(0, 100, 0);
         }
-        if (timeElapsed > cameraZoomInDelay + 1)
+        if (timeElapsed > cameraZoomInDelay + 1 && isCountingTime)
         {
             gameObject.GetComponent<Camera>().orthographic = true;
             canv.enabled = true;
             EnableControls();
+            isCountingTime = false;
         }
-        if (target != null)
+        if (player != null)
         {
-            Vector3 desiredPosition = target.position + offset;
+            Vector3 desiredPosition = player.position + offset;
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
             transform.position = smoothedPosition;
             if (transform.position.x > maxX)
@@ -53,22 +57,24 @@ public class CameraFollow : MonoBehaviour
             if (transform.position.z < minZ)
                 transform.position = new Vector3(transform.position.x, transform.position.y, minZ);
         }
+        else
+            return;
     }
     private void DisableControls()
     {
-        target.GetComponentInParent<PlayerCombatMelee>().enabled = false;
-        target.GetComponentInParent<PlayerCombatRanged>().enabled = false;
-        target.GetComponentInParent<Player>().enabled = false;
-        target.GetComponentInParent<PlayerMovement>().enabled = false;
-        target.GetComponentInParent<PlayerDash>().enabled = false;
+        player.GetComponentInParent<PlayerCombatMelee>().enabled = false;
+        player.GetComponentInParent<PlayerCombatRanged>().enabled = false;
+        player.GetComponentInParent<Player>().enabled = false;
+        player.GetComponentInParent<PlayerMovement>().enabled = false;
+        player.GetComponentInParent<PlayerDash>().enabled = false;
     }
     private void EnableControls()
     {
         
-        target.GetComponentInParent<PlayerCombatMelee>().enabled = true;
-        target.GetComponentInParent<PlayerCombatRanged>().enabled = true;
-        target.GetComponentInParent<Player>().enabled = true;
-        target.GetComponentInParent<PlayerMovement>().enabled = true;
-        target.GetComponentInParent<PlayerDash>().enabled = true;
+        player.GetComponentInParent<PlayerCombatMelee>().enabled = true;
+        player.GetComponentInParent<PlayerCombatRanged>().enabled = true;
+        player.GetComponentInParent<Player>().enabled = true;
+        player.GetComponentInParent<PlayerMovement>().enabled = true;
+        player.GetComponentInParent<PlayerDash>().enabled = true;
     }
 }

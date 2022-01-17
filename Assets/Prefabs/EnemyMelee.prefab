@@ -604,7 +604,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8185311398547467611}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 2.9, z: 2.19}
+  m_LocalPosition: {x: 0, y: 2.9, z: 0.48}
   m_LocalScale: {x: 0.59999996, y: 1, z: 0.59999996}
   m_Children: []
   m_Father: {fileID: 8422892626600249584}
@@ -1969,7 +1969,7 @@ MonoBehaviour:
     m_Bits: 64
   enemyType: 
   sightRange: 30
-  attackRange: 9
+  attackRange: 5
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!114 &375734202542466824
@@ -1989,12 +1989,11 @@ MonoBehaviour:
   projectile: {fileID: 5927164970044821353, guid: 22c205186eedc5e44b520af3c0e34c65,
     type: 3}
   animator: {fileID: 8422892626592999198}
-  attackDamage: 40
+  attackDamage: 10
   bulletSpeed: 30
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 2
   meleeAttackSound: {fileID: 8300000, guid: b41575bc0cd859445aba5b7b0ee4716e, type: 3}
   rangedAttackSound: {fileID: 8300000, guid: 4064e51a44235d44d8f0e50d4e220f64, type: 3}
-  audioSource: {fileID: 0}
 --- !u!195 &2777601371333896806
 NavMeshAgent:
   m_ObjectHideFlags: 0
