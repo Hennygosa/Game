@@ -237,8 +237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c31c9657879c0469bdad02424cefdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   getHitSound: {fileID: 8300000, guid: c05961539f6b35242b6f54bb5de75acb, type: 3}
+  maxHealth: 100
+  currentHealth: 0
 --- !u!114 &366796925873649537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ee0d4ecb87dfe459f050295d3ff8c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 5294811959609540801}
   speed: 1000
 --- !u!114 &366796925873649595
 MonoBehaviour:
@@ -265,15 +265,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f3ea1e178a8524f8eb0b739abbbe5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 5294811959609540801}
-  meleeSound: {fileID: 8300000, guid: e975217caf7cb32499b97cb768159884, type: 3}
+  attackDamage: 40
   attackPoint: {fileID: 366796924945753081}
+  attackSound: {fileID: 8300000, guid: e975217caf7cb32499b97cb768159884, type: 3}
+  attackRange: 5
+  attackCooldown: 1
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
-  attackCooldown: 1
-  attackRange: 5
-  attackDamage: 40
 --- !u!114 &366796925873649593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,14 +285,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6d1bb45ef7d3946ab9781ca6452d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDamage: 20
   attackPoint: {fileID: 366796924945753081}
-  target: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 4064e51a44235d44d8f0e50d4e220f64, type: 3}
+  attackRange: 15
+  attackCooldown: 0.5
   projectile: {fileID: 1013095360586998862, guid: 087a434cba7a8104d9a0a60c6b099c2f,
     type: 3}
-  shootSound: {fileID: 8300000, guid: 4064e51a44235d44d8f0e50d4e220f64, type: 3}
-  attackCooldown: 0.5
-  attackRange: 15
-  attackDamage: 20
   bulletSpeed: 80
   maxAmmo: 1
   currentAmmo: 0

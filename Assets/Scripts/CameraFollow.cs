@@ -62,8 +62,8 @@ public class CameraFollow : MonoBehaviour
     }
     private void DisableControls()
     {
-        player.GetComponentInParent<PlayerCombatMelee>().enabled = false;
-        player.GetComponentInParent<PlayerCombatRanged>().enabled = false;
+        player.GetComponentInParent<PlayerAttackMelee>().enabled = false;
+        player.GetComponentInParent<PlayerAttackRanged>().enabled = false;
         player.GetComponentInParent<Player>().enabled = false;
         player.GetComponentInParent<PlayerMovement>().enabled = false;
         player.GetComponentInParent<PlayerDash>().enabled = false;
@@ -71,8 +71,8 @@ public class CameraFollow : MonoBehaviour
     private void EnableControls()
     {
         
-        player.GetComponentInParent<PlayerCombatMelee>().enabled = true;
-        player.GetComponentInParent<PlayerCombatRanged>().enabled = true;
+        player.GetComponentInParent<PlayerAttackMelee>().enabled = true;
+        player.GetComponentInParent<PlayerAttackRanged>().enabled = true;
         player.GetComponentInParent<Player>().enabled = true;
         player.GetComponentInParent<PlayerMovement>().enabled = true;
         player.GetComponentInParent<PlayerDash>().enabled = true;
