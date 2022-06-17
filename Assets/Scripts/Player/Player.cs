@@ -5,38 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public AudioClip getHitSound;
-    
+    [SerializeField] private AudioClip getHitSound;
+    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int currentHealth;
+
     private Healthbar healthbar;
-    private int currentHealth;
-    private AudioSource audioSource;
 
     void Start()
     {
         healthbar = GameObject.Find("PlayerHealthBar").GetComponent<Healthbar>();
-        audioSource = GetComponent<AudioSource>();
-        currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
+        currentHealth = maxHealth;
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
-        //audioSource.PlayOneShot(getHitSound, 0.2f);
-        //анимация получения урона
+        //get hit sound
+        //get hit animation
 
         if (currentHealth <= 0)
-        {
             Die();
-        }
     }
 
     void Die()
     {
+        //death sound
+        //death animation
         Destroy(gameObject);
-        //анимация смерти
     }
 
     private void OnTriggerEnter(Collider other)

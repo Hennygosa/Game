@@ -28185,6 +28185,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2110092765}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1834431275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 366796924945753080, guid: e5df3665108808f4fad44f45dae4fcbb,
+    type: 3}
+  m_PrefabInstance: {fileID: 5294811959710921655}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1835585565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33422,6 +33428,11 @@ PrefabInstance:
       objectReference: {fileID: 207328242}
     - target: {fileID: 366796925873649593, guid: e5df3665108808f4fad44f45dae4fcbb,
         type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 1834431275}
+    - target: {fileID: 366796925873649593, guid: e5df3665108808f4fad44f45dae4fcbb,
+        type: 3}
       propertyPath: bulletSpeed
       value: 100
       objectReference: {fileID: 0}
@@ -33480,6 +33491,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 366796925873649595, guid: e5df3665108808f4fad44f45dae4fcbb,
+        type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 1834431275}
     - target: {fileID: 366796925873649595, guid: e5df3665108808f4fad44f45dae4fcbb,
         type: 3}
       propertyPath: attackRange

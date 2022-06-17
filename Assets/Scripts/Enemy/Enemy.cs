@@ -3,35 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
-    public DropItem heal;
-    public Healthbar healthbar;
-    public Animator animator;
     public bool inCombat = false;
-    public int maxHealth = 100;
-    public int currentHealth;
-    public AudioClip deathSound;
+    public int attackDamage = 40;
+    
+    [SerializeField] protected Healthbar healthbar;
+    [SerializeField] protected DropItem heal;
+    [SerializeField] protected int maxHealth = 100;
+    [SerializeField] protected AudioClip attackSound;
+    [SerializeField] protected AudioClip getHitSound;
+    [SerializeField] protected AudioClip deathSound;
+    [SerializeField] protected float timeBetweenAttacks;
 
-    private AudioSource audioSource;
+    protected Animator animator;
+    protected AudioSource audioSource;
+    protected GameObject player;
+    protected int currentHealth;
+    protected bool alreadyAttacked = false;
 
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
     {
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
         if (currentHealth < maxHealth)
             inCombat = true;
+    }
+
+    public abstract void Attack();
+
+    protected void ResetAttack()
+    {
+        alreadyAttacked = false;
     }
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
+        audioSource.PlayOneShot(getHitSound);
+        animator.SetTrigger("GetHit");
         animator.Play("GetHit");
         if (currentHealth <= 0)
         {

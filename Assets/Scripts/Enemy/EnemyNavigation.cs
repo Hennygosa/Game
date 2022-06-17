@@ -5,9 +5,9 @@ using UnityEngine.AI;
 
 public class EnemyNavigation : MonoBehaviour
 {
-    public NavMeshAgent agent;
-    public LayerMask whatIsGround, whatIsPlayer;
-    public string enemyType;
+    public NavMeshAgent Agent;
+    public LayerMask WhatIsGround, WhatIsPlayer;
+    public string EnemyType;
 
     private Rigidbody rb;
     private Transform player;
@@ -27,7 +27,7 @@ public class EnemyNavigation : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        agent = GetComponent<NavMeshAgent>();
+        Agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
@@ -35,8 +35,8 @@ public class EnemyNavigation : MonoBehaviour
         if (player != null)
         {
             //проверяем если в радиусе видимости и атаки
-            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, WhatIsPlayer);
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, WhatIsPlayer);
             //если не в радиусе видимости и не в радиусе атаки - патрулируем
             //if (!playerInSightRange && !playerInAttackRange) Patroling();
             //если в радиусе видимости и не в радиусе атаки или враг в бою - преследуем
@@ -48,9 +48,8 @@ public class EnemyNavigation : MonoBehaviour
             //если в радиусе атаки - атакуем
             if (playerInAttackRange)
             {
-
                 transform.LookAt(player);
-                GetComponent<EnemyCombat>().AttackPlayer();
+                GetComponent<Enemy>().Attack();
             }
         }
         else
@@ -84,8 +83,8 @@ public class EnemyNavigation : MonoBehaviour
     private void ChasePlayer()
     {
         animator.SetBool("Chasing", true);
-        agent.SetDestination(player.position);
-        agent.stoppingDistance = attackRange;
+        Agent.SetDestination(player.position);
+        Agent.stoppingDistance = attackRange;
     }
 
     private void OnDrawGizmosSelected()
