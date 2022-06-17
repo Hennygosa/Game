@@ -9,8 +9,12 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       ticks: 637910579917821232
+=======
+      ticks: 637910585247086156
+>>>>>>> Stashed changes
     m_Hash: 1857255145
   m_LockFileStatus:
     m_FilePath: D:/UnityGitRepository/ThreePrincipals/Packages/packages-lock.json
@@ -24,8 +28,12 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       ticks: 637910580946123326
+=======
+      ticks: 637910586339632742
+>>>>>>> Stashed changes
     m_Hash: 38571225
 =======
       ticks: 637910340470553430
