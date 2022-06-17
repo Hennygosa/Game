@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples _ Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples _ Extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\Scripts\DeathMenu.cs" />
     <Compile Include="Assets\Scripts\ChangeLevel.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples _ Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples _ Extras\Scripts\TMP_ExampleScript_01.cs" />
@@ -112,7 +113,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples _ Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples _ Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\DeathMenu.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
